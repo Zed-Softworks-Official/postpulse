@@ -3,6 +3,7 @@ import '~/styles/globals.css'
 import { GeistSans } from 'geist/font/sans'
 import { type Metadata } from 'next'
 
+import { ClerkProvider } from '@clerk/nextjs'
 import { TRPCReactProvider } from '~/trpc/react'
 import { ThemeProvider } from '~/components/theme-provider'
 
@@ -23,14 +24,16 @@ export default function RootLayout({
             suppressHydrationWarning
         >
             <body>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange
-                >
-                    <TRPCReactProvider>{children}</TRPCReactProvider>
-                </ThemeProvider>
+                <ClerkProvider dynamic>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        <TRPCReactProvider>{children}</TRPCReactProvider>
+                    </ThemeProvider>
+                </ClerkProvider>
             </body>
         </html>
     )
