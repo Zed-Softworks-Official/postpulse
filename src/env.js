@@ -11,7 +11,8 @@ export const env = createEnv({
         NODE_ENV: z
             .enum(['development', 'test', 'production'])
             .default('development'),
-        CLERK_SECRET_KEY: z.string()
+        CLERK_SECRET_KEY: z.string(),
+        TWITTER_BEARER_TOKEN: z.string()
     },
 
     /**
@@ -33,7 +34,8 @@ export const env = createEnv({
         NODE_ENV: process.env.NODE_ENV,
         NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
             process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
-        CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY
+        CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
+        TWITTER_BEARER_TOKEN: process.env.TWITTER_BEARER_TOKEN
         // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
     },
     /**
