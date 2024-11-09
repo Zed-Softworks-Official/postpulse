@@ -6,6 +6,7 @@ import { type Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
 import { TRPCReactProvider } from '~/trpc/react'
 import { ThemeProvider } from '~/components/theme-provider'
+import { Toaster } from '~/components/ui/sonner'
 
 export const metadata: Metadata = {
     title: 'Postpulse',
@@ -31,7 +32,10 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <TRPCReactProvider>{children}</TRPCReactProvider>
+                        <TRPCReactProvider>
+                            {children}
+                            <Toaster richColors />
+                        </TRPCReactProvider>
                     </ThemeProvider>
                 </ClerkProvider>
             </body>
